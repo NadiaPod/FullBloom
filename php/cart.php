@@ -7,20 +7,21 @@
 	<title>Корзина</title>
 	<link rel="shortcut icon" href="../img/icon.png" type="image/png">
 	<link rel="stylesheet" href="../css/reset.css">
-	<link rel="stylesheet" href="../css/style.css?v=5">
-	<link rel="stylesheet" href="../css/adaptive.css?v=5">
+	<link rel="stylesheet" href="../css/style.css?v=6">
+	<link rel="stylesheet" href="../css/adaptive.css?v=6">
 </head>
 <body>
 	<div class="layout">
 		<div class="container">
 			<header class="header">
-				<a href="../index.html" class="header__logo"><span>Full</span>Bloom</a>
+				<a href="../index.php" class="header__logo"><span>Full</span>Bloom</a>
 				<nav class="header__navs">
-					<a href="../index.html" class="header__nav">Главная</a>
+					<a href="../index.php" class="header__nav">Главная</a>
 					<a href="catalog.php" class="header__nav">Каталог</a>
-					<a href="../index.html#about" class="header__nav">О нас</a>
-					<a href="../index.html#contacts" class="header__nav">Контакты</a>
-					<a href="#" class="header__nav">Войти</a>
+					<a href="../index.php#about" class="header__nav">О нас</a>
+					<a href="../index.php#contacts" class="header__nav">Контакты</a>
+					<?php if(isset($_SESSION['user']) && $_SESSION['user']==true || isset($_SESSION['admin']) && $_SESSION['admin']==true) echo '<a href="signout.php" class="header__nav">Выйти</a>'; else
+					echo '<a href="signin.php" class="header__nav">Войти</a>'; ?>
 				</nav>
 				<div class="header__burger">
 					<span></span>
@@ -29,10 +30,11 @@
 			<nav class="drawer">
 				<div class="drawer__inner">
 					<div class="drawer__navs">
-						<a href="../index.html" class="drawer__nav">Главная</a>
-						<a href="../index.html#about" class="drawer__nav">О нас</a>
-						<a href="../index.html#contacts" class="drawer__nav">Контакты</a>
-						<a href="#" class="drawer__nav">Войти</a>
+						<a href="../index.php" class="drawer__nav">Главная</a>
+						<a href="../index.php#about" class="drawer__nav">О нас</a>
+						<a href="../index.php#contacts" class="drawer__nav">Контакты</a>
+						<?php if(isset($_SESSION['user']) && $_SESSION['user']==true || isset($_SESSION['admin']) && $_SESSION['admin']==true) echo '<a href="signout.php" class="drawer__nav">Выйти</a>'; else
+					echo '<a href="signin.php" class="drawer__nav">Войти</a>'; ?>
 					</div>
 				</div> 
 			</nav>
@@ -45,7 +47,7 @@
 							echo "<p class='cart__message'>Ваша корзина пуста. <a class='cart__link' href='catalog.php'>Отправиться за покупками</a></p>";
 						} else {
 							require 'Connection.php';
-							mysqli_select_db($link, 'FlowerShop') or die('Невозможно подключиться к базе данных.'); 
+							mysqli_select_db($link, 'u25984nb_flower') or die('Невозможно подключиться к базе данных.'); 
 							$temp=$_SESSION['cart'];
 							foreach($temp as $id=>$kol){
 								$posts = mysqli_query($link, "SELECT * FROM products WHERE ID_Product=".$id);

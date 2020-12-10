@@ -1,8 +1,9 @@
 <?php 
+	session_start();
 	require 'Connection.php';
-	mysqli_select_db($link, 'FlowerShop') or die('Невозможно подключиться к базе данных.'); 
+	mysqli_select_db($link, 'u25984nb_flower') or die('Невозможно подключиться к базе данных.'); 
 	if(empty($_GET[id]) || $_GET[id] < 1) $_GET[id] = 1; 
-	$posts = mysqli_query($link, "SELECT * FROM ProductCategory WHERE ID_Product =".$_GET[id].";");	
+	$posts = mysqli_query($link, "SELECT * FROM `productcategory` WHERE ID_Product =".$_GET[id].";");	
 	$num_rows = mysqli_num_rows($posts);
 	for ($i=0; $i < $num_rows; $i++) { 
 		while ($row = mysqli_fetch_array($posts, MYSQLI_ASSOC)) {
@@ -37,13 +38,15 @@
 	<div class="layout">
 		<div class="container">
 			<header class="header">
-				<a href="../index.html" class="header__logo"><span>Full</span>Bloom</a>
+				<a href="../index.php" class="header__logo"><span>Full</span>Bloom</a>
 				<nav class="header__navs">
-					<a href="../index.html" class="header__nav">Главная</a>
+					<a href="../index.php" class="header__nav">Главная</a>
 					<a href="catalog.php" class="header__nav">Каталог</a>
-					<a href="../index.html#about" class="header__nav">О нас</a>
-					<a href="../index.html#contacts" class="header__nav">Контакты</a>
-					<a href="#" class="header__nav">Войти</a>
+					<a href="cart.php" class="header__nav">Корзина</a>
+					<a href="../index.php#about" class="header__nav">О нас</a>
+					<a href="../index.php#contacts" class="header__nav">Контакты</a>
+					<?php if(isset($_SESSION['user']) && $_SESSION['user']==true || isset($_SESSION['admin']) && $_SESSION['admin']==true) echo '<a href="signout.php" class="header__nav">Выйти</a>'; else
+					echo '<a href="signin.php" class="header__nav">Войти</a>'; ?>
 				</nav>
 				<div class="header__burger">
 					<span></span>
@@ -52,11 +55,13 @@
 			<nav class="drawer">
 				<div class="drawer__inner">
 					<div class="drawer__navs">
-						<a href="../index.html" class="drawer__nav">Главная</a>
+						<a href="../index.php" class="drawer__nav">Главная</a>
 						<a href="catalog.php" class="drawer__nav">Каталог</a>
-						<a href="../index.html#about" class="drawer__nav">О нас</a>
-						<a href="../index.html#contacts" class="drawer__nav">Контакты</a>
-						<a href="#" class="drawer__nav">Войти</a>
+						<a href="cart.php" class="drawer__nav">Корзина</a>
+						<a href="../index.php#about" class="drawer__nav">О нас</a>
+						<a href="../index.php#contacts" class="drawer__nav">Контакты</a>
+						<?php if(isset($_SESSION['user']) && $_SESSION['user']==true || isset($_SESSION['admin']) && $_SESSION['admin']==true) echo '<a href="signout.php" class="drawer__nav">Выйти</a>'; else
+					echo '<a href="signin.php" class="drawer__nav">Войти</a>'; ?>
 					</div>
 				</div>
 			</nav>
@@ -99,15 +104,16 @@
 			<div class="container">
 				<div class="footer__inner">
 					<div class="footer__info">
-						<a href="index.html" class="footer__logo"><span>Full</span>Bloom</a>
+						<a href="../index.php" class="footer__logo"><span>Full</span>Bloom</a>
 						<p class="footer__rights">ⓒ FullBloom, 2020</p>
 						</div>
 					<nav class="footer__navs">
-						<a href="../index.html" class="footer__nav">Главная</a>
+						<a href="../index.php" class="footer__nav">Главная</a>
 						<a href="catalog.php" class="footer__nav">Каталог</a>
-						<a href="../index.html#about" class="footer__nav"> О нас</a>
-						<a href="../index.html#contacts" class="footer__nav">Контакты</a>
-						<a href="#" class="footer__nav">Войти</a>
+						<a href="../index.php#about" class="footer__nav"> О нас</a>
+						<a href="../index.php#contacts" class="footer__nav">Контакты</a>
+						<?php if(isset($_SESSION['user']) && $_SESSION['user']==true || isset($_SESSION['admin']) && $_SESSION['admin']==true) echo '<a href="signout.php" class="footer__nav">Выйти</a>'; else
+					echo '<a href="signin.php" class="footer__nav">Войти</a>'; ?>
 					</nav>
 					<div class="footer__social">
 						<a class="footer__link" href="https://web.facebook.com/nadia.smagin"><img src="../img/footer/001-facebook.svg" alt="" class="footer__img"></a>

@@ -25,7 +25,8 @@ if(document.querySelector('.swiper-container')){
 		drawerInner.classList.remove('active');
 		body.classList.remove('active');
 	}
-	burger.addEventListener('click', openDrawer, false);
+    if(burger){
+	burger.addEventListener('click', openDrawer, false);}
 
 	const drawerNavs = document.querySelectorAll('.drawer__nav');
 	for (let drawerNav of drawerNavs) {
