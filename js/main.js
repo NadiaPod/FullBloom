@@ -52,7 +52,7 @@ if(document.querySelector('.swiper-container')){
         }
     });
 
-     $('.products__button-buy').click(function () {
+     $('.products__button--buy').click(function () {
         var id = $(this).attr('id'); 
             $.ajax({
             type: "POST", 
@@ -89,4 +89,12 @@ if(document.querySelector('.swiper-container')){
                 }
             });
         });
+
+   if($('#order')) $('#order').click(function(){
+        $('.order').addClass('active');
+    });
+
+    if($('#back')) $('#back').click(function(){
+         $('.order').removeClass('active');
+    });
 }

@@ -52,7 +52,7 @@
 						</div> -->
 						<form action="" method="POST" class="sign-up__form">
 							<input type="email" class="sign-up__input" placeholder="E-mail" required name="email">
-							<input type="password" class="sign-up__input" placeholder="Пароль" required name="pass">
+							<input type="password" class="sign-up__input" placeholder="Пароль" required name="pass" >
 							<input type="text" class="sign-up__input" placeholder="Фамилия" required name="lName">
 							<input type="text" class="sign-up__input" name="fName" 
 							placeholder="Имя" required>
@@ -60,7 +60,7 @@
 							placeholder="Отчество">
 							<input type="text" class="sign-up__input" name="address"
 							placeholder="Адрес" required>
-							<input type="phone" class="sign-up__input" name="phone"
+							<input type="tel" class="sign-up__input" name="phone" pattern="[\+][0-9]{12}" 
 							placeholder="Номер телефона" required>
 							<input type="submit" value="Зарегистрироваться" class="sign-up__button" name="submit">
 						</form>

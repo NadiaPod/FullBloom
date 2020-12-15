@@ -50,7 +50,7 @@ if(!isset($_SESSION['admin']) || $_SESSION['admin'] != true){
 						<li class="admin__option"><a href="showsuppliers.php" class="admin__link" target="admin__iframe">Поставщики</a></li>
 						<li class="admin__option"><a href="showdeliveries.php" class="admin__link" target="admin__iframe">Поставки</a></li>
 						<li class="admin__option"><a href="showstock.php" class="admin__link" target="admin__iframe">Склад</a></li>
-						<li class="admin__option"><a href="" class="admin__link" target="admin__iframe">Клиенты</a></li>
+						<li class="admin__option"><a href="showorders.php" class="admin__link" target="admin__iframe">Заказы</a></li>
 					</ul>
 					<div class="admin__page">
 						<iframe src="showtable.php" frameborder="0" class="admin__iframe" name="admin__iframe">

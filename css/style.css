@@ -1949,3 +1949,228 @@ body.active{
 .edit__message:last-child{
 	margin: 0;
 }
+
+.order{
+	background-color: rgba(0,0,0,0.4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 5;
+}
+
+.order.active{
+	display: flex;
+}
+
+.order__inner{
+	padding: 30px 20px;
+	background-color: #fff;
+	width: 60%;
+	height: 60%;
+}
+
+.order__title{
+	color: var(--grey-color);
+	font: 24px /28px 'Raleway';
+	margin: 0 0 15px 0;
+}
+
+.order__message{
+	color: var(--grey-color);
+	font: 18px /24px 'Raleway';
+	margin: 0 0 20px 0;
+}
+
+.order__message > span{
+	display: inline-block;
+}
+
+.order__link{
+	color: var(--green-color);
+	position: relative;
+	padding: 0 0 5px 0;
+	font: 18px /24px 'Raleway';
+}
+
+.order__link:before{
+	content: "";
+    width: 0;
+    height: 0.1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--green-color);
+    transition: all 0.3s;
+}
+
+.order__link:hover{
+	color: var(--green-color);
+}
+
+.order__link:hover:before{
+	width: 100%;
+    left: 0;
+}
+
+.order__form{
+/*	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;*/
+	max-width: 55%;
+	margin: 0 auto 20px;
+}
+
+.order__input{
+	border: 1px solid var(--grey-color);
+	color: var(--grey-color);
+	margin: 0 0 15px 0;
+	padding: 0 0 0 10px;
+	font: 400 18px /30px 'Raleway';
+	-webkit-transition: .18s linear;
+	-o-transition: .18s linear;
+	-moz-transition: .18s linear;
+	transition: .18s linear;
+}
+
+.order__input:focus{
+	border: 1px solid var(--green-color);
+}
+
+.order__button{
+	background-color: var(--green-color);
+	color: #fff;
+	font: 18px /34px 'Raleway';
+	padding: 0 6px;
+	-webkit-transition: .18s linear;
+	-o-transition: .18s linear;
+	-moz-transition: .18s linear;
+	transition: .18s linear;
+}
+
+.order__button:hover{
+	background-color: var(--hover-green);
+	cursor: pointer;
+}
+
+.cabinet{
+	padding: 20px 15px;
+}
+
+.cabinet__inner{
+	display: grid;
+	grid-template-columns: 350px 1fr;
+	grid-column-gap: 40px;
+}
+
+.cabinet__title{
+	color: var(--grey-color);
+	font: 24px /28px 'Raleway';
+	margin: 0 0 15px 0;
+}
+
+.cabinet__subtitle{
+	color: var(--grey-color);
+	font: 20px /28px 'Raleway';
+	margin: 0 0 15px 0;
+}
+
+.cabinet__form{
+	display: flex;
+	flex-direction: column;
+}
+
+.cabinet__input{
+	border: 1px solid var(--grey-color);
+	color: var(--grey-color);
+	margin: 0 0 15px 0;
+	padding: 0 0 0 10px;
+	font: 400 18px /30px 'Raleway';
+	-webkit-transition: .18s linear;
+	-o-transition: .18s linear;
+	-moz-transition: .18s linear;
+	transition: .18s linear;
+}
+
+.cabinet__input:focus{
+	border: 1px solid var(--green-color);
+}
+
+.cabinet__button{
+	background-color: var(--green-color);
+	color: #fff;
+	font: 18px /36px 'Raleway';
+	padding: 0 10px;
+	-webkit-transition: .18s linear;
+	-o-transition: .18s linear;
+	-moz-transition: .18s linear;
+	transition: .18s linear;
+}
+
+.cabinet__button:hover{
+	background-color: var(--hover-green);
+	cursor: pointer;
+}
+
+.cabinet__table{
+	display: table;
+	border-top: 1px solid var(--grey-color);
+	margin: 0 0 20px 0;
+}
+
+.cabinet__names-col, .cabinet__row{
+	display: table-row;
+}
+
+.cabinet__cell{
+	display: table-cell;
+	padding: 10px 8px;
+	font: 18px /22px 'Raleway';
+	border-bottom: 1px solid var(--grey-color);
+}
+
+.cabinet__name-col{
+	display: table-cell;
+	font: 20px /24px 'Raleway';
+	color: var(--green-color);
+	padding: 10px 8px;
+}
+
+.cabinet__message{
+	color: var(--grey-color);
+	font: 18px /24px 'Raleway';
+	margin: 0 0 20px 0;
+}
+
+.contacts__items{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.contacts__item{
+	display: flex;
+	align-items: center;
+	margin: 0 0 25px 0;
+}
+
+.contacts__item:last-child{
+	margin: 0 0 0 0;
+}
+
+.contacts__img{
+	width: 7%;
+	margin: 0 10px 0 0;
+}
+
+.contacts__link{
+	font: 400 calc(18px + 5 * ((100vw - 320px) / (1920 - 320))) /30px 'Raleway';
+	color: var(--grey-color);
+}

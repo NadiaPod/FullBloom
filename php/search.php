@@ -1,6 +1,6 @@
 <?php
  	require 'Connection.php';
- 	mysqli_select_db($link, 'u25984nb_flower') or die('Невозможно подключиться к базе данных.'); 
+ 	mysqli_select_db($link, 'flowershop') or die('Невозможно подключиться к базе данных.'); 
 if (isset($_GET['search'])) {
     $Name = $_GET['search'];
     $Query = "CALL FindProductByName('".$Name."');";

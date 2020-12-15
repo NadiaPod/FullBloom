@@ -154,23 +154,24 @@
 			  		<p class="contacts__caption">
 			  			Как заботиться о вашем растении, какое удобрение выбрать и на какое окно его лучше поставить — очень важные вопросы. Если вы не знаете на них ответа, то наши специалисты всегда готовы вам помочь! Также вы можете задавать любые вопросы, касающиеся нашего магазина. <br> Просто напишите нам интересующие вас вопросы и вскоре вы тоже полюбите уход за растениями.
 			  		</p>
-			  		<form action="php/mail.php" method="POST" class="contacts__form" >
-			  			<div class="contacts__form-group">
-				  			<input type="text" class="contacts__input" name="name" placeholder=" ">
-				  			<label class="contacts__label" for="name">Имя</label>
-			  			</div>
-			  			<div class="contacts__form-group">
-				  			<input type="email" class="contacts__input" name="email" required placeholder=" ">
-				  			<label class="contacts__label" for="email">E-mail</label>
-			  			</div>
-			  			<div class="contacts__form-group">
-				  			<textarea cols="30" rows="5" class="contacts__textarea" name="message" placeholder=" "></textarea>
-				  			<label class="contacts__label" for="message">Сообщение</label>
-			  			</div>
-			  			<input type="submit" class="contacts__button">
-			  		</form>
+			  		<div class="contacts__info">
+						<div class="contacts__items">
+							<div class="contacts__item">
+								<img class="contacts__img" src="img/contacts/027-location.svg" alt="">
+								<p class="contacts__link">Витебск, ул. Правды 63A</p>
+							</div>
+							<div class="contacts__item">
+								<img class="contacts__img" src="img/contacts/043-telephone.svg" alt="">
+								<a href="tel:+375257550837" class="contacts__link">+375(25)755-08-37</a>
+							</div>
+							<div class="contacts__item">
+								<img src="img/contacts/038-send.svg" alt="" class="contacts__img">
+								<a href="mailto:nadiapodkovyrova@gmail.com" class="contacts__link">fullbloom@company.com</a>
+							</div>
+						</div>
 			  	</div>
 		  	</div>
+		  </div>
 		</div>
 		<footer class="footer">
 			<div class="container">

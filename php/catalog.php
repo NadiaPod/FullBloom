@@ -39,7 +39,7 @@
 			</div>
 		</nav> <!-- u25984nb_flower -->
 		<?php require 'Connection.php';
-			  mysqli_select_db($link, 'u25984nb_flower') or die('Невозможно подключиться к базе данных.'); 
+			  mysqli_select_db($link, 'flowershop') or die('Невозможно подключиться к базе данных.'); 
 			  if(empty($_GET[view_id]) || $_GET[view_id] < 1) $_GET[view_id] = 0; 
 				if($_GET[view_id] != 0){
 					$posts = mysqli_query($link, "SELECT * FROM `productcategory` WHERE ID_Cat =".$_GET[view_id].";");
@@ -85,7 +85,7 @@
 			if($row[Discount]>0){
 				$discountShown = $row[Discount]*100;
 			echo "<p class='products__discount'>Скидка: ".$discountShown."%</p>"; }
-			echo "<div class='products__buttons'><button class='products__button' id='toCart'>В корзину</button>";
+			echo "<div class='products__buttons'><button class='products__button products__button--buy' id='".$row[ID_Product]."'>В корзину</button>";
 			echo "<a href='viewProduct.php?id=".$row[ID_Product]."' class='products__button'>Подробнее</a></div>";
 		echo "</div>"; }}; ?>
 		</div>
@@ -114,8 +114,8 @@
 			</div>
 		</footer>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="../js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>	
 </body>
 </html>
 

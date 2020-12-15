@@ -1,8 +1,8 @@
 <?php
         $id = $_POST['id_product'];
-        $count = 0;
         session_start();
         if (!isset($_SESSION['cart'])) {
+            $count = 0;
             $temp[$id] = 1;
             $count = $count + 1;
         } else {
@@ -15,6 +15,6 @@
                 $count = $count + 1;
             }
         }
-        $_SESSION['cart'] = $temp;
+        $_SESSION['cart'] = $temp; 
         echo $count; 
 ?>

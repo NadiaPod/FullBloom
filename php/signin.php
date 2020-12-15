@@ -1,6 +1,6 @@
 <?php
 	require 'Connection.php';
-	mysqli_select_db($link, 'u25984nb_flower') or die('Невозможно подключиться к базе данных.'); 
+	mysqli_select_db($link, 'flowershop') or die('Невозможно подключиться к базе данных.'); 
 	$errors = array();
 	if(isset($_POST['submit'])){
 		if(trim($_POST['email']) == ''){
@@ -15,18 +15,18 @@
 				$errors[] = 'Пользователя с таким email не существует.';
 			}
 			else{
+				session_start(); 
 				$user = mysqli_fetch_array($sql, MYSQLI_ASSOC);
 				$passhash = $user['Password'];
 				$isAdm = (boolean)$user['IsAdmin'];
+				$_SESSION['id_client'] = $user['ID_Client']; 
 				if(password_verify($_POST[pass], $passhash)){
 					if($isAdm == true){
-						session_start(); 
 						$_SESSION['admin'] = true;
 						echo "<script>location.replace('administration.php');</script>";
 					} else{
-						session_start(); 
 						$_SESSION['user'] = true;
-						echo "<script>location.replace('catalog.php');</script>";
+						echo "<script>location.replace('cabinet.php');</script>";
 					}
 				} else{
 					$errors[] = 'Неверный пароль.';

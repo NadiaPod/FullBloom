@@ -1,3 +1,7 @@
+<?php session_start(); 
+if(!isset($_SESSION['user']) || $_SESSION['user'] != true){
+	echo "<script>alert('У вас нет прав доступа на эту страницу!'); location.replace('cart.php');</script>";}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -20,7 +24,7 @@
 					<a href="../index.html#about" class="header__nav">О нас</a>
 					<a href="../index.html#contacts" class="header__nav">Контакты</a>
 					<a href="cart.php" class="header__nav">Корзина</a>
-					<a href="#" class="header__nav">Войти</a>
+					<a href="signout.php" class="header__nav">Выйти</a>
 				</nav>
 				<div class="header__burger">
 					<span></span>
@@ -33,15 +37,21 @@
 						<a href="../index.html#about" class="drawer__nav">О нас</a>
 						<a href="../index.html#contacts" class="drawer__nav">Контакты</a>
 						<a href="cart.php" class="drawer__nav">Корзина</a>
-						<a href="#" class="drawer__nav">Войти</a>
+						<a href="signout.php" class="drawer__nav">Выйти</a>
 					</div>
 				</div> 
 			</nav>
 			<div class="order">
-				<div class="order__title">Оформление заказа №</div>
-				<form action="" method="POST" class="order__form">
-					
-				</form>
+				<?php
+					require 'Connection.php';
+					mysqli_select_db($link, 'flowershop') or die('Невозможно подключиться к базе данных.');
+					$id = $_SESSION['id_client'];
+				 ?>
+				<div class="order__inner">
+				<div class="order__title">Оформление заказа</div>
+				<p class="order__message">В настоящий момент возможен только самовывоз из нашего магзина. Служба доставки временно не работает. Приносим извинения за причененные неудобства.</p>
+
+				</div>
 			</div>
 		</div>
 	</div>
